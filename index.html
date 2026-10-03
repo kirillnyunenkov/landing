@@ -114,11 +114,11 @@
   /* Student stories */
   .stories{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
   .story{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden;display:flex;flex-direction:column}
-  .story-photo{aspect-ratio:1.18;background:var(--accent-soft)}
-  .story-photo img{width:100%;height:100%;object-fit:cover}
-  .story-body{padding:28px 30px 30px}
-  .story h3{margin-top:14px}
-  .story p{color:var(--muted);margin-top:10px;font-size:16.5px}
+  .story-body{padding:30px}
+  .story-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .story-head img{width:76px;height:76px;border-radius:var(--r-tile);object-fit:cover;flex:none}
+  .story-head span{display:block;color:var(--muted);font-size:15.5px;margin-top:2px}
+  .story p{color:var(--muted);margin-top:14px;font-size:16.5px}
   .story .tg{display:inline-block;margin-top:18px;color:var(--accent);font-weight:600;text-decoration:none;font-size:16px}
   .story .tg:hover{color:var(--accent-ink);text-decoration:underline}
   .story-wide{grid-column:1/-1;background:var(--accent-soft);border-color:transparent;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;padding:34px 30px}
@@ -242,7 +242,7 @@
     .case{grid-template-columns:1fr;gap:10px;padding:22px 0}
     .stories{grid-template-columns:1fr}
     .story-wide{grid-template-columns:1fr;gap:14px;padding:26px 24px}
-    .story-body{padding:22px 24px 26px}
+    .story-body{padding:24px}
     .bento{grid-template-columns:1fr}
     .tile-trainer,.tile-chart,.tile-s,.tile-s:last-child{grid-column:auto}
     .tile{padding:24px}
@@ -313,19 +313,23 @@
     <p class="lead rv">Три истории учеников. Максиму и Феде можно написать и спросить о занятиях напрямую.</p>
     <div class="stories">
       <article class="story rv">
-        <div class="story-photo"><img src="assets/img/story-maxim.webp" width="1000" height="850" loading="lazy" alt="Максим, ученик"></div>
         <div class="story-body">
+          <div class="story-head">
+            <img src="assets/img/story-maxim.webp" width="1000" height="850" loading="lazy" alt="Максим, ученик" style="object-position:52% 30%">
+            <div><h3>Максим</h3><span>Поступил на бюджет в МФТИ</span></div>
+          </div>
           <div class="case-score num"><i>80</i><span class="arrow">→</span><span class="to">95</span></div>
-          <h3>Максим. Бюджет МФТИ</h3>
           <p>Упёрся в потолок 80 баллов: первую часть решал быстро, но терял баллы во второй. За 5 месяцев закрыли пробелы в геометрии 7-9 классов, отработали параметры и каждую неделю разбирали ошибки пробников.</p>
           <a class="tg" href="https://t.me/Okeeye_tg" target="_blank" rel="noopener">Спросить у Максима: @Okeeye_tg</a>
         </div>
       </article>
       <article class="story rv">
-        <div class="story-photo"><img src="assets/img/story-fedya.webp" width="1000" height="850" loading="lazy" alt="Федя у входа в Президентскую академию"></div>
         <div class="story-body">
+          <div class="story-head">
+            <img src="assets/img/story-fedya.webp" width="1000" height="850" loading="lazy" alt="Федя, ученик" style="object-position:58% 70%">
+            <div><h3>Федя</h3><span>Поступил в РАНХиГС</span></div>
+          </div>
           <div class="case-score num"><i>64</i><span class="arrow">→</span><span class="to">86</span></div>
-          <h3>Федя. Поступил в РАНХиГС</h3>
           <p>Цель была 75. Казалось, что темы понятны, но на нетипичных задачах первой части терялись баллы, а параметры вызывали ступор. Закрыли скрытые пробелы, с нуля освоили параметры, писали пробники каждую неделю.</p>
           <a class="tg" href="https://t.me/kibrr5" target="_blank" rel="noopener">Спросить у Феди: @kibrr5</a>
         </div>
