@@ -115,8 +115,11 @@
   .stories{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
   .story{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden;display:flex;flex-direction:column}
   .story-body{padding:30px}
-  .story-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
-  .story-head img{width:76px;height:76px;border-radius:var(--r-tile);object-fit:cover;flex:none}
+  .story-split{display:grid;grid-template-columns:168px 1fr;gap:26px;padding:28px;align-items:start}
+  .story-split .story-body{padding:0}
+  .story-pic{background:var(--accent-soft);height:200px;border-radius:var(--r-tile);overflow:hidden}
+  .story-pic img{width:100%;height:100%;object-fit:cover}
+  .story-head{margin-bottom:18px}
   .story-head span{display:block;color:var(--muted);font-size:15.5px;margin-top:2px}
   .story p{color:var(--muted);margin-top:14px;font-size:16.5px}
   .story .tg{display:inline-block;margin-top:18px;color:var(--accent);font-weight:600;text-decoration:none;font-size:16px}
@@ -157,7 +160,12 @@
   .doc img{width:100%;height:100%;object-fit:cover;object-position:top}
 
   /* Reviews */
-  .quotes{columns:3;column-gap:16px;margin-top:48px}
+  .proofs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+  .proof{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden}
+  .proof div{height:210px;display:flex;align-items:center;justify-content:center;padding:22px 26px;background:#fff}
+  .proof img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+  .proof figcaption{padding:14px 26px 18px;border-top:1px solid var(--line);font-size:15px;color:var(--muted)}
+  .quotes{columns:3;column-gap:16px;margin-top:16px}
   .quote{break-inside:avoid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);padding:28px;margin:0 0 16px}
   .quote blockquote{margin:0;font-size:18px;line-height:1.5}
   .quote figcaption{margin-top:18px;font-size:14.5px;color:var(--muted)}
@@ -240,7 +248,11 @@
     .cta-row .btn{width:100%}
     .facts{padding-top:44px}
     .case{grid-template-columns:1fr;gap:10px;padding:22px 0}
+    .proofs{grid-template-columns:1fr}
+    .proof div{height:170px;padding:16px}
     .stories{grid-template-columns:1fr}
+    .story-split{grid-template-columns:104px 1fr;gap:16px;padding:22px}
+    .story-pic{height:124px}
     .story-wide{grid-template-columns:1fr;gap:14px;padding:26px 24px}
     .story-body{padding:24px}
     .bento{grid-template-columns:1fr}
@@ -312,10 +324,10 @@
     <h2 class="rv">С чем приходят и что получают на экзамене</h2>
     <p class="lead rv">Три истории учеников. Максиму и Феде можно написать и спросить о занятиях напрямую.</p>
     <div class="stories">
-      <article class="story rv">
+      <article class="story story-split rv">
+        <div class="story-pic"><img src="assets/img/story-maxim.webp" width="1000" height="850" loading="lazy" alt="Максим, ученик" style="object-position:50% 25%"></div>
         <div class="story-body">
           <div class="story-head">
-            <img src="assets/img/story-maxim.webp" width="1000" height="850" loading="lazy" alt="Максим, ученик" style="object-position:52% 30%">
             <div><h3>Максим</h3><span>Поступил на бюджет в МФТИ</span></div>
           </div>
           <div class="case-score num"><i>80</i><span class="arrow">→</span><span class="to">95</span></div>
@@ -323,10 +335,10 @@
           <a class="tg" href="https://t.me/Okeeye_tg" target="_blank" rel="noopener">Спросить у Максима: @Okeeye_tg</a>
         </div>
       </article>
-      <article class="story rv">
+      <article class="story story-split rv">
+        <div class="story-pic"><img src="assets/img/story-fedya.webp" width="1000" height="850" loading="lazy" alt="Федя, ученик" style="object-position:60% 50%"></div>
         <div class="story-body">
           <div class="story-head">
-            <img src="assets/img/story-fedya.webp" width="1000" height="850" loading="lazy" alt="Федя, ученик" style="object-position:58% 70%">
             <div><h3>Федя</h3><span>Поступил в РАНХиГС</span></div>
           </div>
           <div class="case-score num"><i>64</i><span class="arrow">→</span><span class="to">86</span></div>
@@ -437,7 +449,16 @@
 <section id="reviews" style="padding-top:0">
   <div class="wrap">
     <h2 class="rv">Что говорят родители и ученики</h2>
-    <p class="lead rv">Рейтинг 5,0 на Авито (27 отзывов) и 5,0 на Профи.ру (17 отзывов).</p>
+    <div class="proofs">
+      <figure class="proof rv">
+        <div><img src="assets/img/proof-avito.webp" width="452" height="280" loading="lazy" alt="Профиль на Авито: рейтинг 5,0, 27 отзывов"></div>
+        <figcaption>Профиль на Авито: рейтинг 5,0 и 27 отзывов</figcaption>
+      </figure>
+      <figure class="proof rv">
+        <div><img src="assets/img/proof-profi.webp" width="1240" height="520" loading="lazy" alt="Профиль на Профи.ру: рейтинг 5,0, 17 отзывов, отметка «Очень хвалят»"></div>
+        <figcaption>Профиль на Профи.ру: рейтинг 5,0, 17 отзывов, паспорт проверен</figcaption>
+      </figure>
+    </div>
     <div class="quotes">
       <figure class="quote rv">
         <blockquote>«После первого урока дочь сказала, что за одно занятие поняла больше, чем за месяц занятий в школе.»</blockquote>
