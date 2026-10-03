@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кирилл Нюненков. Репетитор по профильной математике ЕГЭ</title>
+<meta name="description" content="Подготовка к профильному ЕГЭ по математике онлайн. Выпускник МФТИ, 100 баллов ЕГЭ, рейтинг 5,0 на Авито. Первое занятие бесплатно.">
+<meta name="theme-color" content="#f5f8f6">
+<link rel="canonical" href="https://ege.kirillnyun.space/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://ege.kirillnyun.space/">
+<meta property="og:title" content="Кирилл Нюненков. Профильная математика ЕГЭ">
+<meta property="og:description" content="Выпускник МФТИ, 100 баллов ЕГЭ. Готовлю с любого уровня. Пробное занятие бесплатно.">
+<meta property="og:image" content="https://ege.kirillnyun.space/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preload" href="assets/fonts/golos-text-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/hero.webp" as="image">
+<style>
+  @font-face{font-family:'Golos Text';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(assets/fonts/golos-text-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
+  @font-face{font-family:'Golos Text';font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(assets/fonts/golos-text-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+  /* Tokens. Radius system: buttons are pills, panels and images 24px, small tiles 16px. */
+  :root{
+    --bg:#f5f8f6;
+    --surface:#ffffff;
+    --ink:#0f1a16;
+    --muted:#56635d;
+    --line:#dde5e0;
+    --accent:#17694d;
+    --accent-ink:#0f4a36;
+    --accent-soft:#e3efe9;
+    --r-panel:24px;
+    --r-tile:16px;
+    --shadow:0 1px 2px rgba(15,74,54,.05),0 12px 32px -12px rgba(15,74,54,.14);
+    --wrap:1180px;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+  h1,h2,h3,p{margin:0}
+  h1,h2{letter-spacing:-.025em;line-height:1.06;font-weight:600}
+  h2{font-size:clamp(30px,4vw,46px)}
+  h3{font-size:20px;line-height:1.25;font-weight:600;letter-spacing:-.01em}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  section{padding:104px 0}
+  section[id]{scroll-margin-top:92px}
+  .lead{color:var(--muted);font-size:19px;max-width:58ch;margin-top:18px}
+  .num{font-variant-numeric:tabular-nums}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 28px;border-radius:999px;
+    font:inherit;font-weight:600;font-size:16.5px;text-decoration:none;white-space:nowrap;
+    transition:transform .25s var(--ease),background-color .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease)}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px rgba(23,105,77,.6)}
+  .btn-primary:hover{background:var(--accent-ink);transform:translateY(-1px)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .btn-sm{height:42px;padding:0 20px;font-size:15px}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:20;background:rgba(245,248,246,.86);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .nav.is-stuck{border-bottom-color:var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+  .brand{font-weight:600;text-decoration:none;letter-spacing:-.01em}
+  .nav-links{display:flex;gap:30px;font-size:15.5px;color:var(--muted)}
+  .nav-links a{text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+
+  /* Hero */
+  .hero{padding:48px 0 0}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  .hero h1{font-size:clamp(38px,5.1vw,66px)}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero .lead{font-size:20px;max-width:46ch;margin-top:24px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  .hero-photo{position:relative;border-radius:var(--r-panel);overflow:hidden;background:#fff;aspect-ratio:4/4.6;box-shadow:var(--shadow)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+
+  /* Facts strip */
+  .facts{padding:64px 0 0}
+  .facts-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .fact{padding:28px 24px 28px 0}
+  .fact + .fact{padding-left:28px;border-left:1px solid var(--line)}
+  .fact b{display:block;font-size:clamp(30px,3.4vw,42px);line-height:1;font-weight:600;letter-spacing:-.03em}
+  .fact span{display:block;margin-top:10px;color:var(--muted);font-size:15.5px;line-height:1.4}
+
+  /* Results */
+  .results-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+  .results-head{position:sticky;top:108px}
+  .case{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:baseline;padding:26px 0;border-top:1px solid var(--line)}
+  .case:first-child{border-top:0;padding-top:0}
+  .case-score{font-size:clamp(34px,4.2vw,52px);font-weight:600;letter-spacing:-.035em;line-height:1;white-space:nowrap}
+  .case-score i{font-style:normal;color:var(--muted);font-weight:400}
+  .case-score .arrow{color:var(--accent);font-weight:400;padding:0 .12em}
+  .case-score .to{color:var(--accent)}
+  .case p{color:var(--muted);font-size:16.5px}
+  .case p strong{display:block;color:var(--ink);font-weight:600;margin-bottom:2px}
+  .note{color:var(--muted);font-size:14.5px;margin-top:22px}
+
+  /* Bento */
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:48px}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);padding:30px;overflow:hidden}
+  .tile p{color:var(--muted);margin-top:10px;font-size:16.5px}
+  .tile-trainer{grid-column:span 4;padding-bottom:0;display:flex;flex-direction:column}
+  .tile-trainer .shot{margin:26px -1px 0;border-radius:var(--r-tile) var(--r-tile) 0 0;border:1px solid var(--line);border-bottom:0;overflow:hidden;flex:1;min-height:240px;max-height:330px}
+  .tile-trainer .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .tile-chart{grid-column:span 2;display:flex;flex-direction:column}
+  .bars{display:flex;align-items:flex-end;gap:10px;height:190px;margin-top:auto;padding-top:28px}
+  .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%;font-size:14px;font-weight:600}
+  .bar s{display:block;width:100%;border-radius:8px 8px 3px 3px;background:var(--accent-soft);text-decoration:none;transform-origin:bottom;transition:transform .9s var(--ease)}
+  .bar:last-child s{background:var(--accent)}
+  .bar:last-child{color:var(--accent)}
+  .tile-s{grid-column:span 2}
+  .tile-accent{background:var(--accent-soft);border-color:transparent}
+  .tile-accent p{color:var(--accent-ink)}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+  .about-photo{border-radius:var(--r-panel);overflow:hidden;aspect-ratio:1/1.08;box-shadow:var(--shadow)}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:40% 30%}
+  .about-list{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:16px}
+  .about-list li{padding-left:20px;position:relative;color:var(--muted)}
+  .about-list li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--accent)}
+  .about-list b{color:var(--ink);font-weight:600}
+  .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+  .doc{display:block;text-decoration:none;font-size:14px;line-height:1.35;color:var(--muted)}
+  .doc span{display:block;border:1px solid var(--line);border-radius:var(--r-tile);overflow:hidden;background:#fff;aspect-ratio:4/3;margin-bottom:10px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .doc:hover span{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .doc img{width:100%;height:100%;object-fit:cover;object-position:top}
+
+  /* Reviews */
+  .quotes{columns:3;column-gap:16px;margin-top:48px}
+  .quote{break-inside:avoid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);padding:28px;margin:0 0 16px}
+  .quote blockquote{margin:0;font-size:18px;line-height:1.5}
+  .quote figcaption{margin-top:18px;font-size:14.5px;color:var(--muted)}
+  .quote figcaption b{color:var(--ink);font-weight:600}
+  .unis{margin-top:56px;padding-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:baseline}
+  .unis h3{font-size:22px}
+  .unis ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:clamp(20px,2.3vw,27px);font-weight:600;letter-spacing:-.02em}
+
+  /* Trial */
+  .trial{padding-bottom:120px}
+  .trial-panel{background:var(--accent-soft);border-radius:32px;padding:64px}
+  .trial-panel h2{max-width:17ch}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin:44px 0 0;padding:0;list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;border-top:2px solid var(--accent);padding-top:18px}
+  .steps li::before{content:counter(s);display:block;font-size:15px;font-weight:600;color:var(--accent);margin-bottom:10px}
+  .steps p{color:var(--accent-ink);font-size:16.5px;margin-top:8px}
+  .trial .cta-row{margin-top:48px}
+
+  /* FAQ */
+  .faq{padding-top:0}
+  .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
+  details{border-top:1px solid var(--line);padding:22px 0}
+  details:last-child{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;font-weight:600;font-size:19px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:400;font-size:26px;line-height:1;color:var(--accent);transition:transform .3s var(--ease)}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--muted);margin-top:12px;max-width:60ch}
+
+  footer{border-top:1px solid var(--line);padding:32px 0 40px;color:var(--muted);font-size:15px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px 28px}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--ink)}
+  .foot-links{display:flex;gap:24px}
+
+  .mbar{display:none}
+
+  /* Scroll reveal: content appears in reading order, once */
+  @media (prefers-reduced-motion:no-preference){
+    .js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .js .rv.in{opacity:1;transform:none}
+    .js .bars .bar s{transform:scaleY(0)}
+    .js .bars.in .bar s{transform:scaleY(1)}
+    .js .bars .bar:nth-child(2) s{transition-delay:.07s}
+    .js .bars .bar:nth-child(3) s{transition-delay:.14s}
+    .js .bars .bar:nth-child(4) s{transition-delay:.21s}
+    .js .bars .bar:nth-child(5) s{transition-delay:.28s}
+    .js .bars .bar:nth-child(6) s{transition-delay:.35s}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+  @media (max-width:980px){
+    section{padding:76px 0}
+    .nav-links{display:none}
+    .hero-grid,.results-grid,.about-grid,.faq-grid,.unis{grid-template-columns:1fr;gap:36px}
+    .results-head{position:static}
+    .hero-photo{aspect-ratio:4/3.6;max-width:560px}
+    .facts-grid{grid-template-columns:repeat(2,1fr)}
+    .fact{padding:22px 16px 22px 0}
+    .fact + .fact{padding-left:20px}
+    .fact:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}
+    .fact:nth-child(4){border-top:1px solid var(--line)}
+    .bento{grid-template-columns:1fr 1fr}
+    .tile-trainer,.tile-chart{grid-column:span 2}
+    .tile-s{grid-column:span 1}
+    .tile-s:last-child{grid-column:span 2}
+    .quotes{columns:2}
+    .about-photo{max-width:480px}
+    .trial-panel{padding:44px 32px}
+    .steps{grid-template-columns:1fr;gap:24px}
+  }
+  @media (max-width:640px){
+    body{font-size:16.5px;padding-bottom:84px}
+    .wrap{padding:0 18px}
+    section{padding:60px 0}
+    .nav .wrap{height:60px}
+    .nav .btn{display:none}
+    .hero{padding-top:24px}
+    .hero .lead{font-size:18px}
+    .cta-row .btn{width:100%}
+    .facts{padding-top:44px}
+    .case{grid-template-columns:1fr;gap:10px;padding:22px 0}
+    .bento{grid-template-columns:1fr}
+    .tile-trainer,.tile-chart,.tile-s,.tile-s:last-child{grid-column:auto}
+    .tile{padding:24px}
+    .tile-trainer .shot{min-height:0;max-height:none;flex:none}
+    .tile-trainer .shot img{height:auto}
+    .quotes{columns:1}
+    .docs{gap:10px}
+    .trial{padding-bottom:64px}
+    .trial-panel{padding:36px 22px;border-radius:24px}
+    summary{font-size:17.5px}
+    .mbar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+      background:rgba(245,248,246,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);
+      transform:translateY(110%);transition:transform .45s var(--ease)}
+    .mbar.show{transform:none}
+    .mbar .btn{width:100%}
+  }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Кирилл Нюненков</a>
+    <nav class="nav-links" aria-label="Разделы страницы">
+      <a href="#results">Результаты</a>
+      <a href="#how">Подготовка</a>
+      <a href="#about">Обо мне</a>
+      <a href="#reviews">Отзывы</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://t.me/kirill_math_tutor" target="_blank" rel="noopener">Записаться в Telegram</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Репетитор по математике, онлайн</span>
+      <h1>Готовлю к профильному ЕГЭ <em>с любого уровня</em></h1>
+      <p class="lead">Первое занятие бесплатно. Разберём, что уже получается, найдём пробелы и составим план до экзамена.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/kirill_math_tutor" target="_blank" rel="noopener">Записаться в Telegram</a>
+        <a class="btn btn-ghost" href="https://6max.ru/kirill_repetitor" target="_blank" rel="noopener">Написать в MAX</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/img/hero.webp" width="1200" height="1800" alt="Кирилл Нюненков, репетитор по математике" fetchpriority="high">
+    </div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Коротко обо мне">
+  <div class="wrap">
+    <div class="facts-grid">
+      <div class="fact"><b class="num">100</b><span>баллов на ЕГЭ по профильной математике</span></div>
+      <div class="fact"><b>МФТИ</b><span>выпускник Физтеха, прикладная математика и информатика</span></div>
+      <div class="fact"><b class="num">50+</b><span>выпускников и больше 3000 часов занятий</span></div>
+      <div class="fact"><b class="num">5,0</b><span>рейтинг на Авито по отзывам родителей и учеников</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap results-grid">
+    <div class="results-head rv">
+      <h2>С чем приходят и что получают на экзамене</h2>
+      <p class="lead">Слева балл пробника до занятий, справа результат ЕГЭ. Все цифры из отзывов родителей и учеников.</p>
+    </div>
+    <div class="rv">
+      <div class="case">
+        <div class="case-score num"><i>27</i><span class="arrow">→</span><span class="to">64</span></div>
+        <p><strong>За 3,5 месяца</strong>Школа требовала срочно перейти на базовую математику. Дмитрий, отец ученицы</p>
+      </div>
+      <div class="case">
+        <div class="case-score num"><i>30</i><span class="arrow">→</span><span class="to">78</span></div>
+        <p><strong>С января до экзамена</strong>Два занятия в неделю по полтора часа. Александр, ученик</p>
+      </div>
+      <div class="case">
+        <div class="case-score num"><i>39</i><span class="arrow">→</span><span class="to">84</span></div>
+        <p><strong>С февраля до экзамена</strong>Слева балл школьных пробников до занятий. Тимофей, родитель</p>
+      </div>
+      <div class="case">
+        <div class="case-score num"><i>35-40</i><span class="arrow">→</span><span class="to">84</span></div>
+        <p><strong>За учебный год</strong>Часть тем западала, пробники держались на одном уровне. Азиз, отец ученицы</p>
+      </div>
+      <div class="case">
+        <div class="case-score num"><i>&lt;27</i><span class="arrow">→</span><span class="to">72</span></div>
+        <p><strong>Меньше чем за полгода</strong>На пробном ЕГЭ сын не набрал минимальные 27 баллов. Иван, отец ученика</p>
+      </div>
+      <p class="note">Результат зависит от стартового уровня и времени до экзамена. Реальную цель называю после пробного занятия.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="rv">Как устроена подготовка</h2>
+    <p class="lead rv">Занятия один на один, онлайн. Между уроками ученик не остаётся без дела и без ответа.</p>
+    <div class="bento">
+      <div class="tile tile-trainer rv">
+        <h3>Свой тренажёр по первой части</h3>
+        <p>203 прототипа заданий, которые встречаются на экзамене. Прогресс сохраняется, я вижу, что освоено, а что нужно повторить.</p>
+        <div class="shot"><img src="assets/img/trainer.webp" width="1800" height="1195" loading="lazy" alt="Экран тренажёра: задания ЕГЭ с прогрессом по каждому номеру"></div>
+      </div>
+      <div class="tile tile-chart rv">
+        <h3>Пробники под учётом</h3>
+        <p>Записываю каждый балл по каждому заданию и отправляю отчёт родителям. Так выглядит рост одного ученика за шесть пробников.</p>
+        <div class="bars" aria-label="Баллы ученика на шести пробниках: 52, 76, 82, 76, 86, 94">
+          <div class="bar num">52<s style="height:44%"></s></div>
+          <div class="bar num">76<s style="height:65%"></s></div>
+          <div class="bar num">82<s style="height:70%"></s></div>
+          <div class="bar num">76<s style="height:65%"></s></div>
+          <div class="bar num">86<s style="height:73%"></s></div>
+          <div class="bar num">94<s style="height:80%"></s></div>
+        </div>
+      </div>
+      <div class="tile tile-s rv">
+        <h3>Учу думать, а не зубрить</h3>
+        <p>Не подсказываю ответ сразу. Даю время дойти до решения самому, поэтому на экзамене незнакомая задача не пугает.</p>
+      </div>
+      <div class="tile tile-s rv">
+        <h3>Домашка к каждому уроку</h3>
+        <p>Закрепляем тему дома, ошибки разбираем на следующем занятии. Оформление проверяю по критериям ЕГЭ.</p>
+      </div>
+      <div class="tile tile-s tile-accent rv">
+        <h3>На связи всю неделю</h3>
+        <p>Отвечаю на вопросы между занятиями, присылаю шпаргалки и разборы. Решаем на интерактивной доске, всё наглядно.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:0">
+  <div class="wrap about-grid">
+    <div class="about-photo rv">
+      <img src="assets/img/about.webp" width="1400" height="1286" loading="lazy" alt="Кирилл Нюненков">
+    </div>
+    <div class="rv">
+      <h2>Сам сдал ЕГЭ на 100 и помню, как это было</h2>
+      <ul class="about-list">
+        <li><b>100 баллов по профильной математике</b>, 98 по информатике и 91 по русскому языку</li>
+        <li><b>Выпускник МФТИ</b>, направление «Прикладная математика и информатика»</li>
+        <li><b>Призёр олимпиады «Росатом»</b> по математике</li>
+        <li><b>Победитель олимпиады для педагогов</b> «Педагогический успех»</li>
+        <li><b>Больше 4 лет</b> готовлю к экзаменам</li>
+      </ul>
+      <div class="docs">
+        <a class="doc" href="assets/img/doc1.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc1.webp" width="1400" height="1050" loading="lazy" alt="Справка о результатах ЕГЭ"></span>Справка о результатах ЕГЭ</a>
+        <a class="doc" href="assets/img/doc2.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc2.webp" width="1400" height="1050" loading="lazy" alt="Диплом призёра олимпиады Росатом"></span>Диплом олимпиады «Росатом»</a>
+        <a class="doc" href="assets/img/doc3.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc3.webp" width="1400" height="1050" loading="lazy" alt="Диплом победителя олимпиады Педагогический успех"></span>Диплом «Педагогический успех»</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="rv">Что говорят родители и ученики</h2>
+    <div class="quotes">
+      <figure class="quote rv">
+        <blockquote>«После первого урока дочь сказала, что за одно занятие поняла больше, чем за месяц занятий в школе.»</blockquote>
+        <figcaption><b>Сергей</b>, отец ученицы. Отзыв на Профи.ру</figcaption>
+      </figure>
+      <figure class="quote rv">
+        <blockquote>«Сын занимался с удовольствием, даже сам захотел заниматься летом в каникулы.»</blockquote>
+        <figcaption><b>Владислав</b>, отец ученика. Отзыв на Авито</figcaption>
+      </figure>
+      <figure class="quote rv">
+        <blockquote>«Когда я тупила, ты не помогал мне сразу и не давал сразу ответ, а давал мне время, чтобы я сама додумалась, дошла своим мозгом.»</blockquote>
+        <figcaption><b>Варвара</b>, ученица. Из переписки после экзамена</figcaption>
+      </figure>
+      <figure class="quote rv">
+        <blockquote>«Со мной Кирилл был всегда на связи, не давал нашему ученику расслабляться.»</blockquote>
+        <figcaption><b>Иван</b>, отец ученика. Отзыв на Авито</figcaption>
+      </figure>
+      <figure class="quote rv">
+        <blockquote>«Кирилл с самого пробного занятия нашёл общий язык с сыном. Объясняет очень доходчиво и понятно.»</blockquote>
+        <figcaption><b>Тамара</b>, мама ученика. Отзыв на Профи.ру</figcaption>
+      </figure>
+      <figure class="quote rv">
+        <blockquote>«Постоянно находится на связи, что немаловажно при взаимодействии дистанционно. Легко находит общий язык с ребёнком.»</blockquote>
+        <figcaption><b>Тимофей</b>, родитель. Отзыв на Авито</figcaption>
+      </figure>
+    </div>
+    <div class="unis rv">
+      <h3>Ученики поступают в</h3>
+      <ul>
+        <li>МФТИ</li><li>МГУ</li><li>ВШЭ</li><li>МГИМО</li><li>РАНХиГС</li><li>ИТМО</li><li>СПбГУ</li><li>МИРЭА</li><li>РУТ МИИТ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="trial" id="trial" style="padding-top:0">
+  <div class="wrap">
+    <div class="trial-panel rv">
+      <h2>Начнём с бесплатного пробного занятия</h2>
+      <ol class="steps">
+        <li><h3>Диагностика за 60 минут</h3><p>Решаем задачи разного уровня и смотрим, где ученик теряет баллы.</p></li>
+        <li><h3>Карта пробелов и план</h3><p>Показываю, какие темы закрыть в первую очередь и на какой балл можно рассчитывать.</p></li>
+        <li><h3>Доступ к тренажёру</h3><p>Ученик получает тренажёр по первой части и может начать готовиться в тот же день.</p></li>
+      </ol>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/kirill_math_tutor" target="_blank" rel="noopener">Записаться в Telegram</a>
+        <a class="btn btn-ghost" href="https://6max.ru/kirill_repetitor" target="_blank" rel="noopener">Написать в MAX</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap faq-grid">
+    <h2 class="rv">Частые вопросы</h2>
+    <div class="rv">
+      <details>
+        <summary>Как проходят занятия?</summary>
+        <p>Онлайн, один на один. Решаем на интерактивной доске: ученик пишет сам, я вижу каждый шаг и сразу поправляю.</p>
+      </details>
+      <details>
+        <summary>До экзамена мало времени. Есть смысл начинать?</summary>
+        <p>Да. Одна из учениц за 3,5 месяца прошла путь с 27 до 64 баллов. На пробном занятии честно скажу, на что можно рассчитывать за оставшееся время.</p>
+      </details>
+      <details>
+        <summary>Как родители узнают о прогрессе?</summary>
+        <p>Результаты каждого пробника записываю по заданиям и регулярно отправляю отчёт. Видно, какие номера уже стабильно решаются, а какие нет.</p>
+      </details>
+      <details>
+        <summary>Ребёнок учится на тройки. Вы таких берёте?</summary>
+        <p>Да. Кому-то нужно 50 баллов, кому-то 95. Программу строю под цель и стартовый уровень, а не под средний шаблон.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Кирилл Нюненков, репетитор по математике</span>
+    <span class="foot-links">
+      <a href="https://t.me/kirill_math_tutor" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://6max.ru/kirill_repetitor" target="_blank" rel="noopener">MAX</a>
+    </span>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-primary" href="https://t.me/kirill_math_tutor" target="_blank" rel="noopener">Записаться в Telegram</a>
+</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),mbar=document.getElementById('mbar');
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv,.bars').forEach(function(e){e.classList.add('in')});
+    mbar.classList.add('show');return;
+  }
+  // Reveal on enter, once
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  document.querySelectorAll('.rv,.bars').forEach(function(e){io.observe(e)});
+  // Nav border and mobile CTA bar appear once the hero buttons scroll away
+  var hero=document.querySelector('.hero .cta-row');
+  new IntersectionObserver(function(es){
+    var away=!es[0].isIntersecting;
+    nav.classList.toggle('is-stuck',away);
+    mbar.classList.toggle('show',away);
+  }).observe(hero);
+})();
+</script>
+</body>
+</html>
