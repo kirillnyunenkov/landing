@@ -132,7 +132,10 @@
   .story p{color:var(--muted);margin-top:14px;font-size:16.5px}
   .story .tg{display:inline-block;margin-top:18px;color:var(--accent);font-weight:600;text-decoration:none;font-size:16px}
   .story .tg:hover{color:var(--accent-ink);text-decoration:underline}
-  .story-wide{grid-column:1/-1;background:var(--accent-soft);border-color:transparent;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;padding:34px 30px}
+  .story-proof{grid-column:1/-1;margin:0;border:1px solid var(--line);border-radius:var(--r-tile);overflow:hidden;background:#fff}
+  .story-proof img{width:100%}
+  .story-wide{grid-column:1/-1;background:var(--accent-soft);border-color:transparent;display:grid;grid-template-columns:auto 1fr 240px;gap:44px;align-items:center;padding:30px}
+  .story-wide .story-proof{grid-column:auto;border-color:transparent}
   .story-wide h3{margin-top:0}
   .story-wide p{color:var(--accent-ink)}
 
@@ -261,7 +264,8 @@
     .stories{grid-template-columns:1fr}
     .story-split{grid-template-columns:104px 1fr;gap:16px;padding:22px}
     .story-pic{height:124px}
-    .story-wide{grid-template-columns:1fr;gap:14px;padding:26px 24px}
+    .story-wide{grid-template-columns:1fr;gap:16px;padding:26px 24px}
+    .story-wide .story-proof{max-width:280px}
     .story-body{padding:24px}
     .bento{grid-template-columns:1fr}
     .tile-trainer,.tile-chart,.tile-s,.tile-s:last-child{grid-column:auto}
@@ -347,6 +351,7 @@
           <p>Упёрся в потолок 80 баллов: первую часть решал быстро, но терял баллы во второй. За 5 месяцев закрыли пробелы в геометрии 7-9 классов, отработали параметры и каждую неделю разбирали ошибки пробников.</p>
           <a class="tg" href="https://t.me/Okeeye_tg" target="_blank" rel="noopener">Спросить у Максима: @Okeeye_tg</a>
         </div>
+        <figure class="story-proof"><img src="assets/img/result-maxim.webp" width="1100" height="367" loading="lazy" alt="Результат Максима на ЕГЭ по профильной математике: 95 баллов"></figure>
       </article>
       <article class="story story-split rv">
         <div class="story-pic ph" style="background-image:url(data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAABwBQCdASocABcAPu1qrlCppaQiqAqpMB2JQBdgMaGOJaPYpwtga1I7ugPRbwpNHJ20iXzAAP7QpZW8lX8Y2fuB7yzMtNqCDst5oz/f9h+RWtREPNsPZZwZVQ87yVo9a4YXOkoBfpUg1LCzRZxS6pecWvh+MUQf2bL0DUGcZBInCGyt+LlYI+hjpdunzJC+P914zKqNDNjS66hC0M9u0VZDTnHzjx8oUD/5lvNdjj5iXZSE27Cq3QVJAfKozxFS9fdCE3bfmP+UCxLs8nw0iM857wsvDWx7NSzVaRgA);background-position:60% 50%"><img src="assets/img/story-fedya-s.webp" width="440" height="374" loading="lazy" alt="Федя, ученик" style="object-position:60% 50%"></div>
@@ -363,8 +368,9 @@
         <div class="case-score num"><i>0</i><span class="arrow">→</span><span class="to">70</span></div>
         <div>
           <h3>Егор. Бюджет РУТ МИИТ</h3>
-          <p>Нулевая база после 9 класса из-за частой смены учителей. За 5 месяцев восстановили степени и корни, прошли логарифмы и тригонометрию, тренировались в тренажёре по ключевым прототипам.</p>
+          <p>Нулевая база после 9 класса из-за частой смены учителей. Рассчитывали на 55, мечтали о 70. За 5 месяцев восстановили степени и корни, прошли логарифмы и тригонометрию, тренировались в тренажёре по ключевым прототипам.</p>
         </div>
+        <figure class="story-proof"><img src="assets/img/result-egor.webp" width="760" height="578" loading="lazy" alt="Результат Егора на ЕГЭ по профильной математике: 70 баллов"></figure>
       </article>
     </div>
   </div>
@@ -409,8 +415,8 @@
         <div class="shot"><img src="assets/img/trainer.webp" width="2000" height="1361" loading="lazy" alt="Экран тренажёра: задания ЕГЭ с прогрессом по каждому номеру"></div>
       </div>
       <div class="tile tile-chart rv">
-        <h3>Пробники под учётом</h3>
-        <p>Записываю каждый балл по каждому заданию и отправляю отчёт родителям. Так выглядит рост одного ученика за шесть пробников.</p>
+        <h3>Пробники с проверкой</h3>
+        <p>Проверяю сам по критериям ФИПИ, вместе с оформлением. Это входит в стоимость. Баллы по каждому заданию записываю и отправляю родителям. Ниже рост одного ученика за шесть пробников.</p>
         <div class="bars" aria-label="Баллы ученика на шести пробниках: 52, 76, 82, 76, 86, 94">
           <div class="bar num">52<s style="height:44%"></s></div>
           <div class="bar num">76<s style="height:65%"></s></div>
@@ -426,7 +432,7 @@
       </div>
       <div class="tile tile-s rv">
         <h3>Домашка к каждому уроку</h3>
-        <p>Закрепляем тему дома, ошибки разбираем на следующем занятии. Оформление проверяю по критериям ЕГЭ.</p>
+        <p>Закрепляем тему дома, ошибки разбираем на следующем занятии. Так тема не забывается к экзамену.</p>
       </div>
       <div class="tile tile-s tile-accent rv">
         <h3>На связи всю неделю</h3>
@@ -514,7 +520,7 @@
       <ol class="steps">
         <li><h3>Диагностика за 60 минут</h3><p>Решаем задачи разного уровня и смотрим, где ученик теряет баллы.</p></li>
         <li><h3>Карта пробелов и план</h3><p>Показываю, какие темы закрыть в первую очередь и на какой балл можно рассчитывать.</p></li>
-        <li><h3>Доступ к тренажёру</h3><p>Ученик получает тренажёр по первой части и может начать готовиться в тот же день.</p></li>
+        <li><h3>Тренажёр и разбор критериев</h3><p>Открываю доступ к тренажёру и присылаю разбор критериев оформления второй части.</p></li>
       </ol>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://t.me/kirill_math_tutor" target="_blank" rel="noopener">Записаться в Telegram</a>
