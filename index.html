@@ -124,6 +124,11 @@
   .story{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-panel);overflow:hidden;display:flex;flex-direction:column}
   .story-body{padding:30px}
   .story-split{display:grid;grid-template-columns:168px 1fr;gap:26px;padding:28px;align-items:start}
+  .story-top{grid-column:1/-1;grid-template-columns:168px 1fr 400px;align-items:center}
+  .story-top .story-pic{align-self:start}
+  .story-top .story-proof{grid-column:auto}
+  .story .story-pic-doc{background:#fff;border:1px solid var(--line);height:auto}
+  .story .story-pic-doc img{object-fit:contain;height:auto}
   .story-split .story-body{padding:0}
   .story-pic{background:var(--accent-soft);height:200px;border-radius:var(--r-tile);overflow:hidden}
   .story-pic img{width:100%;height:100%;object-fit:cover}
@@ -134,10 +139,6 @@
   .story .tg:hover{color:var(--accent-ink);text-decoration:underline}
   .story-proof{grid-column:1/-1;margin:0;border:1px solid var(--line);border-radius:var(--r-tile);overflow:hidden;background:#fff}
   .story-proof img{width:100%}
-  .story-wide{grid-column:1/-1;background:var(--accent-soft);border-color:transparent;display:grid;grid-template-columns:auto 1fr 240px;gap:44px;align-items:center;padding:30px}
-  .story-wide .story-proof{grid-column:auto;border-color:transparent}
-  .story-wide h3{margin-top:0}
-  .story-wide p{color:var(--accent-ink)}
 
   /* Bento */
   .bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:48px}
@@ -152,6 +153,8 @@
   .bar s{display:block;width:100%;border-radius:8px 8px 3px 3px;background:var(--accent-soft);text-decoration:none;transform-origin:bottom;transition:transform .9s var(--ease)}
   .bar:last-child s{background:var(--accent)}
   .bar:last-child{color:var(--accent)}
+  .tile-h{grid-column:span 3}
+  .tile-h .shot{max-height:300px}
   .tile-s{grid-column:span 2}
   .tile-accent{background:var(--accent-soft);border-color:transparent}
   .tile-accent p{color:var(--accent-ink)}
@@ -241,6 +244,8 @@
     .fact:nth-child(4){border-top:1px solid var(--line)}
     .bento{grid-template-columns:1fr 1fr}
     .tile-trainer,.tile-chart{grid-column:span 2}
+    .story-top{grid-template-columns:168px 1fr}
+    .story-top .story-proof{grid-column:1/-1}
     .tile-s{grid-column:span 1}
     .tile-s:last-child{grid-column:span 2}
     .quotes{columns:2}
@@ -264,8 +269,7 @@
     .stories{grid-template-columns:1fr}
     .story-split{grid-template-columns:104px 1fr;gap:16px;padding:22px}
     .story-pic{height:124px}
-    .story-wide{grid-template-columns:1fr;gap:16px;padding:26px 24px}
-    .story-wide .story-proof{max-width:280px}
+    .story-top .story-proof{grid-column:1/-1}
     .story-body{padding:24px}
     .bento{grid-template-columns:1fr}
     .tile-trainer,.tile-chart,.tile-s,.tile-s:last-child{grid-column:auto}
@@ -341,7 +345,7 @@
     <h2 class="rv">С чем приходят и что получают на экзамене</h2>
     <p class="lead rv">Три истории учеников. Максиму и Феде можно написать и спросить о занятиях напрямую.</p>
     <div class="stories">
-      <article class="story story-split rv">
+      <article class="story story-split story-top rv">
         <div class="story-pic ph" style="background-image:url(data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAAAQBQCdASocABgAPu1mq02ppaQiMAgBMB2JQBdgBCm1DL+27QBGkW3/bNyqZW6jsBQAAP7r41mNdDgDithSYQf+yYUXZjcBiPhP4w4V7uShjRquCjujsPy+rEoOYGz2WYVRyImHDP7E2/cWhCcKDBJsMJfuS/i0Cg0cKTa52C5GKIbbhVzgR5+d99z7KOtH/1IxpVoWyWGh8KLh+qFaaFipI9lB7F1MQw5bWYw76i9neNW+Daju3SHoaMIh0hzUpnB37Em2l6UbCWhgFYr8AA==);background-position:50% 25%"><img src="assets/img/story-maxim-s.webp" width="440" height="374" loading="lazy" alt="Максим, ученик" style="object-position:50% 25%"></div>
         <div class="story-body">
           <div class="story-head">
@@ -364,13 +368,15 @@
           <a class="tg" href="https://t.me/kibrr5" target="_blank" rel="noopener">Спросить у Феди: @kibrr5</a>
         </div>
       </article>
-      <article class="story story-wide rv">
-        <div class="case-score num"><i>0</i><span class="arrow">→</span><span class="to">70</span></div>
-        <div>
-          <h3>Егор. Бюджет РУТ МИИТ</h3>
+      <article class="story story-split rv">
+        <div class="story-pic story-pic-doc"><img src="assets/img/result-egor.webp" width="700" height="600" loading="lazy" alt="Результат Егора на ЕГЭ по профильной математике: 70 баллов"></div>
+        <div class="story-body">
+          <div class="story-head">
+            <div><h3>Егор</h3><span>Поступил на бюджет в РУТ МИИТ</span></div>
+          </div>
+          <div class="case-score num"><i>0</i><span class="arrow">→</span><span class="to">70</span></div>
           <p>Нулевая база после 9 класса из-за частой смены учителей. Рассчитывали на 55, мечтали о 70. За 5 месяцев восстановили степени и корни, прошли логарифмы и тригонометрию, тренировались в тренажёре по ключевым прототипам.</p>
         </div>
-        <figure class="story-proof"><img src="assets/img/result-egor.webp" width="760" height="578" loading="lazy" alt="Результат Егора на ЕГЭ по профильной математике: 70 баллов"></figure>
       </article>
     </div>
   </div>
@@ -436,7 +442,17 @@
       </div>
       <div class="tile tile-s tile-accent rv">
         <h3>На связи всю неделю</h3>
-        <p>Отвечаю на вопросы между занятиями, присылаю шпаргалки и разборы. Решаем на интерактивной доске, всё наглядно.</p>
+        <p>Отвечаю на вопросы между занятиями, присылаю шпаргалки и разборы сложных задач.</p>
+      </div>
+      <div class="tile tile-trainer tile-h rv">
+        <h3>У каждого ученика свой кабинет</h3>
+        <p>Расписание, домашние задания и их проверка в одном месте. Ничего не теряется в переписке.</p>
+        <div class="shot"><img src="assets/img/platform-homework.webp" width="1400" height="1011" loading="lazy" alt="Кабинет ученика: карточка домашнего задания со сроком и статусом"></div>
+      </div>
+      <div class="tile tile-trainer tile-h rv">
+        <h3>Занятия на общей доске</h3>
+        <p>Ученик пишет решение сам, я вижу каждый шаг и сразу поправляю.</p>
+        <div class="shot"><img src="assets/img/platform-board.webp" width="1300" height="740" style="object-position:right top" loading="lazy" alt="Интерактивная доска с решением квадратного уравнения"></div>
       </div>
     </div>
   </div>
