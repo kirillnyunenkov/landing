@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="preload" href="assets/fonts/golos-text-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/img/hero.webp" as="image">
+<link rel="preload" as="image" href="assets/img/hero.webp" imagesrcset="assets/img/hero-720.webp 720w, assets/img/hero.webp 1200w" imagesizes="(max-width:980px) 92vw, 500px">
 <style>
   @font-face{font-family:'Golos Text';font-style:normal;font-weight:400 700;font-display:swap;
     src:url(assets/fonts/golos-text-cyrillic.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}
@@ -46,6 +46,11 @@
   body{margin:0;background:var(--bg);color:var(--ink);font-family:'Golos Text',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
     font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%;height:auto}
+  /* Soft image loading: blurred placeholder behind, picture fades in once decoded */
+  .ph{background-size:cover;background-repeat:no-repeat}
+  .js img.fade{opacity:0;transition:opacity .6s ease}
+  .js img.fade.on{opacity:1}
+  @media (prefers-reduced-motion:reduce){.js img.fade{transition:none}}
   a{color:inherit}
   h1,h2,h3,p{margin:0}
   h1,h2{letter-spacing:-.025em;line-height:1.06;font-weight:600}
@@ -302,8 +307,8 @@
         <a class="btn btn-ghost" href="https://6max.ru/kirill_repetitor" target="_blank" rel="noopener">Написать в MAX</a>
       </div>
     </div>
-    <div class="hero-photo">
-      <img src="assets/img/hero.webp" width="1200" height="1800" alt="Кирилл Нюненков, репетитор по математике" fetchpriority="high">
+    <div class="hero-photo ph" style="background-image:url(data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQBACdASoSABwAPu1kqk2ppaQiMAgBMB2JZQDL4CG8mqGYnSTIM1de6i/fCgAA/vOBOT9HvO1VOj9BuPBptm7j1e5aPAx1xklLNb/R5K2FtXyYZSiwJq2Jg3uwE+An665Bj2Tz+H7+nqt16/ihUBXdXWXikC7n10wbKAAA);background-position:50% 12%">
+      <img src="assets/img/hero.webp" srcset="assets/img/hero-720.webp 720w, assets/img/hero.webp 1200w" sizes="(max-width:980px) 92vw, 500px" width="1200" height="1800" alt="Кирилл Нюненков, репетитор по математике" fetchpriority="high">
     </div>
   </div>
 </section>
@@ -325,7 +330,7 @@
     <p class="lead rv">Три истории учеников. Максиму и Феде можно написать и спросить о занятиях напрямую.</p>
     <div class="stories">
       <article class="story story-split rv">
-        <div class="story-pic"><img src="assets/img/story-maxim.webp" width="1000" height="850" loading="lazy" alt="Максим, ученик" style="object-position:50% 25%"></div>
+        <div class="story-pic ph" style="background-image:url(data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAAAQBQCdASocABgAPu1mq02ppaQiMAgBMB2JQBdgBCm1DL+27QBGkW3/bNyqZW6jsBQAAP7r41mNdDgDithSYQf+yYUXZjcBiPhP4w4V7uShjRquCjujsPy+rEoOYGz2WYVRyImHDP7E2/cWhCcKDBJsMJfuS/i0Cg0cKTa52C5GKIbbhVzgR5+d99z7KOtH/1IxpVoWyWGh8KLh+qFaaFipI9lB7F1MQw5bWYw76i9neNW+Daju3SHoaMIh0hzUpnB37Em2l6UbCWhgFYr8AA==);background-position:50% 25%"><img src="assets/img/story-maxim-s.webp" width="440" height="374" loading="lazy" alt="Максим, ученик" style="object-position:50% 25%"></div>
         <div class="story-body">
           <div class="story-head">
             <div><h3>Максим</h3><span>Поступил на бюджет в МФТИ</span></div>
@@ -336,7 +341,7 @@
         </div>
       </article>
       <article class="story story-split rv">
-        <div class="story-pic"><img src="assets/img/story-fedya.webp" width="1000" height="850" loading="lazy" alt="Федя, ученик" style="object-position:60% 50%"></div>
+        <div class="story-pic ph" style="background-image:url(data:image/webp;base64,UklGRugAAABXRUJQVlA4INwAAABwBQCdASocABcAPu1qrlCppaQiqAqpMB2JQBdgMaGOJaPYpwtga1I7ugPRbwpNHJ20iXzAAP7QpZW8lX8Y2fuB7yzMtNqCDst5oz/f9h+RWtREPNsPZZwZVQ87yVo9a4YXOkoBfpUg1LCzRZxS6pecWvh+MUQf2bL0DUGcZBInCGyt+LlYI+hjpdunzJC+P914zKqNDNjS66hC0M9u0VZDTnHzjx8oUD/5lvNdjj5iXZSE27Cq3QVJAfKozxFS9fdCE3bfmP+UCxLs8nw0iM857wsvDWx7NSzVaRgA);background-position:60% 50%"><img src="assets/img/story-fedya-s.webp" width="440" height="374" loading="lazy" alt="Федя, ученик" style="object-position:60% 50%"></div>
         <div class="story-body">
           <div class="story-head">
             <div><h3>Федя</h3><span>Поступил в РАНХиГС</span></div>
@@ -425,8 +430,8 @@
 
 <section id="about" style="padding-top:0">
   <div class="wrap about-grid">
-    <div class="about-photo rv">
-      <img src="assets/img/about.webp" width="1400" height="1286" loading="lazy" alt="Кирилл Нюненков">
+    <div class="about-photo rv ph" style="background-image:url(data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABwBQCdASocABkAPu1mq04ppaQiKA1RMB2JZgDGfEXgBgELVluJBWDIYbm82s2itJjA8UAAAP75J7G7Q/qpmDhr9+Dvdhz+ElRZgu/PUr7m5LI2TnCIHGNiWw2t6UcAOl6FzXyvetfaqFrUvhR45AXJCG0ZcdY1Nca8xSsMsWDsnstFnsmWa8MJt+GkUv7+2dnQAA==);background-position:40% 30%">
+      <img src="assets/img/about-s.webp" width="960" height="882" loading="lazy" alt="Кирилл Нюненков">
     </div>
     <div class="rv">
       <h2>Сам сдал ЕГЭ на 100 и помню, как это было</h2>
@@ -438,9 +443,9 @@
         <li><b>Больше 4 лет</b> готовлю к экзаменам</li>
       </ul>
       <div class="docs">
-        <a class="doc" href="assets/img/doc1.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc1.webp" width="1400" height="1050" loading="lazy" alt="Справка о результатах ЕГЭ"></span>Справка о результатах ЕГЭ</a>
-        <a class="doc" href="assets/img/doc2.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc2.webp" width="1400" height="1050" loading="lazy" alt="Диплом призёра олимпиады Росатом"></span>Диплом олимпиады «Росатом»</a>
-        <a class="doc" href="assets/img/doc3.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc3.webp" width="1400" height="1050" loading="lazy" alt="Диплом победителя олимпиады Педагогический успех"></span>Диплом «Педагогический успех»</a>
+        <a class="doc" href="assets/img/doc1.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc1-s.webp" width="520" height="390" loading="lazy" alt="Справка о результатах ЕГЭ"></span>Справка о результатах ЕГЭ</a>
+        <a class="doc" href="assets/img/doc2.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc2-s.webp" width="520" height="390" loading="lazy" alt="Диплом призёра олимпиады Росатом"></span>Диплом олимпиады «Росатом»</a>
+        <a class="doc" href="assets/img/doc3.webp" target="_blank" rel="noopener"><span><img src="assets/img/doc3-s.webp" width="520" height="390" loading="lazy" alt="Диплом победителя олимпиады Педагогический успех"></span>Диплом «Педагогический успех»</a>
       </div>
     </div>
   </div>
@@ -554,6 +559,13 @@
 <script>
 (function(){
   var nav=document.getElementById('nav'),mbar=document.getElementById('mbar');
+  // Images fade in when loaded; already cached ones show at once
+  document.querySelectorAll('img').forEach(function(im){
+    if(im.complete&&im.naturalWidth){return}
+    im.classList.add('fade');
+    var show=function(){im.classList.add('on')};
+    im.addEventListener('load',show);im.addEventListener('error',show);
+  });
   if(!('IntersectionObserver' in window)){
     document.querySelectorAll('.rv,.bars').forEach(function(e){e.classList.add('in')});
     mbar.classList.add('show');return;
