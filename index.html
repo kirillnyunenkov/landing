@@ -47,6 +47,9 @@
     font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%;height:auto}
   /* Soft image loading: blurred placeholder behind, picture fades in once decoded */
+  .js body{opacity:0}
+  .js.ready body{opacity:1;transition:opacity .45s ease}
+  @media (prefers-reduced-motion:reduce){.js.ready body{transition:none}}
   .ph{background-size:cover;background-repeat:no-repeat}
   .js img.fade{opacity:0;transition:opacity .6s ease}
   .js img.fade.on{opacity:1}
@@ -277,7 +280,12 @@
     .mbar .btn{width:100%}
   }
 </style>
-<script>document.documentElement.classList.add('js')</script>
+<script>
+  // Page stays hidden until the first screen is ready (see the end of body); 3s safety net
+  document.documentElement.classList.add('js');
+  window.__ready=function(){document.documentElement.classList.add('ready')};
+  setTimeout(window.__ready,3000);
+</script>
 </head>
 <body>
 
@@ -559,8 +567,16 @@
 <script>
 (function(){
   var nav=document.getElementById('nav'),mbar=document.getElementById('mbar');
-  // Images fade in when loaded; already cached ones show at once
+  // Show the whole page once the font and the hero photo are ready
+  var heroImg=document.querySelector('.hero-photo img');
+  var imgReady=new Promise(function(r){
+    if(heroImg.complete){r()}else{heroImg.addEventListener('load',r);heroImg.addEventListener('error',r)}
+  });
+  var fontReady=document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve();
+  Promise.all([imgReady,fontReady]).then(window.__ready,window.__ready);
+  // Images below fade in when loaded; already cached ones show at once
   document.querySelectorAll('img').forEach(function(im){
+    if(im===heroImg){return}
     if(im.complete&&im.naturalWidth){return}
     im.classList.add('fade');
     var show=function(){im.classList.add('on')};
